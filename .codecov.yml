@@ -4,5 +4,8 @@ codecov:
 comment:
 	layout: "diff, files"
 	behaviour: new
-
+coverage:
+  status:
+    project: on
+    patch: off
 
