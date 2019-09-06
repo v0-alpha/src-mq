@@ -1,1 +1,3 @@
-export const x = true
+import { resetBreakpoints, setBreakpoints } from './config'
+
+export { resetBreakpoints, setBreakpoints }
