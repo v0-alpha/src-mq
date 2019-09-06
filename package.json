@@ -1,7 +1,7 @@
 {
 	"name": "src-mq",
 	"version": "0.1.0",
-	"description": "Breakpoint @media queries in JS",
+	"description": "Breakpoint media queries in JS",
 	"repository": "https://github.com/src-mq/src-mq.git",
 	"license": "MIT"
 }
