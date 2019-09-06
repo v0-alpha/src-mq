@@ -1,0 +1,10 @@
+codecov:
+    ci:
+		- travis-ci.com
+comment:
+	layout: "diff, files"
+coverage:
+  status:
+    project: on
+    patch: off
+

@@ -1,4 +1,4 @@
-import { x } from '../src'
+import { x } from '../src/'
 
 test('tests exist', () => {
 	expect(x).toBe(true)
