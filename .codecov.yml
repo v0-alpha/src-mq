@@ -3,6 +3,7 @@ codecov:
 		- travis-ci.com
 comment:
 	layout: "diff, files"
+	require_changes: true
 coverage:
   status:
     project: on
