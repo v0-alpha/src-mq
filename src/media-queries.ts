@@ -1,20 +1,18 @@
 const asEms = (pixels: number) => `${pixels / 16}em`
 
-const query = (features: string, mediaType: string = 'all') =>
-	`@media ${mediaType} and ${features}`
+const query = (mediaType: string = 'all') => `@media ${mediaType} and`
+
+const minWidth = (width: number) => `(min-width: ${asEms(width)})`
+const maxWidth = (width: number) => `(max-width: ${asEms(width - 1)})`
 
 export const fromQuery = (from: number, mediaType?: string) =>
-	query(`(min-width: ${asEms(from)})`, mediaType)
+	`${query(mediaType)} ${minWidth(from)}`
 
 export const untilQuery = (until: number, mediaType?: string) =>
-	query(`(max-width: ${asEms(until - 1)})`, mediaType)
+	`${query(mediaType)} ${maxWidth(until)}`
 
 export const fromUntilQuery = (
 	from: number,
 	until: number,
 	mediaType?: string,
-) =>
-	query(
-		`(min-width: ${asEms(from)}) and (max-width: ${asEms(until - 1)})`,
-		mediaType,
-	)
+) => `${query(mediaType)} ${minWidth(from)} and ${maxWidth(until)}`
