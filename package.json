@@ -11,6 +11,8 @@
 		"typescript": "^3.6.2"
 	},
 	"scripts": {
-		"test": "jest"
+		"test": "jest",
+		"lint": "tsc --noEmit",
+		"build": "tsc"
 	}
 }

@@ -1,5 +1,13 @@
 {
 	"compilerOptions": {
-		"sourceMap": true
-	}
+		"moduleResolution": "node",
+		"sourceMap": true,
+		"declaration": true,
+		"target": "esnext",
+		"outDir": "dist",
+		"esModuleInterop": true,
+		"strict": true
+	},
+	"exclude": ["node_modules", "**/__tests__/*"],
+	"include": ["src"]
 }
