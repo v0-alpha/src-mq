@@ -1,7 +1,10 @@
 language: node_js
 cache: yarn
-scripts:
-	- yarn global add codecov
-	- yarn test --ci
+branches:
+    only:
+        - master
+script:
+    - 'yarn global add codecov'
+    - 'yarn test --ci'
 after_success:
-    - codecov -f coverage/coverage-final.json
+    - 'codecov -f coverage/coverage-final.json'
