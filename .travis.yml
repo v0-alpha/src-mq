@@ -1,6 +1,6 @@
 language: node_js
 cache: yarn
-script:
+scripts:
 	- yarn global add codecov
 	- yarn test --ci
 after_success:
