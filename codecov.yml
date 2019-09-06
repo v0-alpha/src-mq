@@ -1,8 +1,8 @@
 codecov:
     ci:
 		- travis-ci.com
-	comment:
-		layout: "diff, files"
-		behaviour: "new"
+comment:
+	layout: "diff, files"
+	behaviour: "new"
 
 
