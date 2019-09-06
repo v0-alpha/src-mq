@@ -5,9 +5,7 @@ describe('fromQuery', () => {
 		expect(fromQuery(160)).toBe('@media all and (min-width: 10em)')
 	})
 	test('generates min-widths with media type', () => {
-		expect(fromQuery(160, 'print')).toBe(
-			'@media print and (min-width: 10em)',
-		)
+		expect(fromQuery(160, 'print')).toBe('@media print and (min-width: 10em)')
 	})
 })
 
