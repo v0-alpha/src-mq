@@ -4,7 +4,7 @@ branches:
     only:
         - master
 script:
-    - 'yarn global add codecov'
-    - 'yarn test --ci'
+    - yarn global add codecov
+    - yarn test --ci
 after_success:
-    - 'codecov -f coverage/coverage-final.json'
+    - codecov -f coverage/*.json
