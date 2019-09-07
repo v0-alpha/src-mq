@@ -147,6 +147,6 @@ resetBreakpoints()
 ## Acknowledgements
 _src-mq_ is heavily inspired by [sass-mq](https://github.com/sass-mq/sass-mq).
 
-It's extracted from work [originally done at the Guardian](https://github.com/guardian/dotcom-rendering/pull/21) as part of the new rendering tier, and now being rolled into their [Source Design System](https://github.com/guardian/source-components).
+It's extracted from work [originally done at the Guardian](https://github.com/guardian/dotcom-rendering/pull/21) that is now being rolled into their [Source Design System](https://github.com/guardian/source-components).
 
 Hence the name 💃.
