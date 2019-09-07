@@ -1,4 +1,9 @@
-import { breakpoints, resetBreakpoints, setBreakpoints } from './config'
+import {
+	breakpoints,
+	extendBreakpoints,
+	resetBreakpoints,
+	setBreakpoints,
+} from './config'
 import { fromQuery, fromUntilQuery, untilQuery } from './media-queries'
 
 type Breakpoints = keyof typeof breakpoints
@@ -40,4 +45,4 @@ export const from = Object.entries(breakpoints).reduce(
 	{},
 ) as From
 
-export { resetBreakpoints, setBreakpoints }
+export { resetBreakpoints, setBreakpoints, extendBreakpoints }
