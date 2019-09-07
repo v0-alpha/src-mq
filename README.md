@@ -24,8 +24,6 @@ The default is `all`.
 
 ## Usage
 
-### Basics
-
 There are two main ways of applying breakpoints:
 
 - `from` (applies from `breakpoint.value`)
