@@ -94,19 +94,17 @@ import {
 	resetBreakpoints,
 } from 'src-mq'
 
-/*
-Breakpoints are the default set:
-
-	- xxSmall (320 pixels)
-	- xSmall (375 pixels)
-	- small (480 pixels)
-	- medium (740 pixels)
-	- large (980 pixels)
-	- xLarge (1140 pixels)
-	- xxLarge (1300 pixels)
-
-You can do [from.small.until.medium] etc.
-*/
+// Breakpoints are the default set:
+//
+// 	- xxSmall (320 pixels)
+// 	- xSmall (375 pixels)
+// 	- small (480 pixels)
+// 	- medium (740 pixels)
+// 	- large (980 pixels)
+// 	- xLarge (1140 pixels)
+// 	- xxLarge (1300 pixels)
+//
+// You can do [from.small.until.medium] etc.
 
 setBreakpoints({ tiny: 1, massive: 10000000 })
 
@@ -118,7 +116,6 @@ setBreakpoints({ tiny: 1, massive: 10000000 })
 // Now you can do [from.tiny.until.massive],
 // but not [from.small.until.medium] etc.
 
-
 extendBreakpoints({ infinitesimal: 0.00000001 })
 
 // Breakpoints have been extended:
@@ -128,7 +125,6 @@ extendBreakpoints({ infinitesimal: 0.00000001 })
 // 	- massive (10000000 pixels)
 //
 // Now you can do [from.infinitesimal.until.massive] etc.
-
 
 resetBreakpoints()
 
