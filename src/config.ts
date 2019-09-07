@@ -1,4 +1,4 @@
-const defaults = {
+const defaults: BreakpointsList = {
 	xxSmall: 320,
 	xSmall: 375,
 	small: 480,
@@ -8,12 +8,12 @@ const defaults = {
 	xxLarge: 1300,
 }
 
-let breakpoints: Breakpoints = defaults
+let breakpoints = defaults
 
-export const extendBreakpoints = (userBreakpoints: Breakpoints) =>
+export const extendBreakpoints = (userBreakpoints: BreakpointsList) =>
 	(breakpoints = Object.assign({}, userBreakpoints, breakpoints))
 
-export const setBreakpoints = (userBreakpoints: Breakpoints) =>
+export const setBreakpoints = (userBreakpoints: BreakpointsList) =>
 	(breakpoints = userBreakpoints)
 
 export const resetBreakpoints = () => (breakpoints = defaults)
