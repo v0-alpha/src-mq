@@ -17,7 +17,7 @@ Legible breakpoints for JavaScript.
 - `xLarge` (1140 pixels)
 - `xxLarge` (1300 pixels)
 
-Breakpoint values are converted to ems, assuming an em is 16 pixels.
+_n.b. breakpoint values are converted to ems, assuming an em is 16 pixels._
 
 ### @media type
 The default is `all`.
@@ -26,8 +26,8 @@ The default is `all`.
 
 There are two ways of applying breakpoints:
 
-- `from` (applies from `breakpoint.value`)
-- `until` (applies until `breakpoint.value - 1`)
+- `from`
+- `until`
 
 ```js
 import { from, until } from 'src-mq'
@@ -45,6 +45,8 @@ const styles = {
 }
 ```
 
+_n.b. `from`  applies from the breakpoint, `until` applies until the breakpoint minus one pixel._
+
 ### Ranges
 
 `from` can also chain an `until`, to apply styles _between_ two breakpoints:
@@ -61,9 +63,9 @@ const styles = {
 }
 ```
 
-### @media types
+### Custom @media types
 
-Both techniques can chain an optional `for()` method, allowing you set a custom media type for an individual query:
+Both techniques can chain an optional `for()` method, allowing you set a media type per query:
 
 ```js
 import { from, until } from 'src-mq'
@@ -81,9 +83,9 @@ const styles = {
 }
 ```
 
-## Custom breakpoints
+## Using your own breakpoints
 
-Breakpoints can be replaced, extended or restored:
+The default set of breakpoints can be replaced, extended or restored:
 
 ```js
 import {
@@ -137,8 +139,8 @@ breakpoints have been restored to the default set:
 ```
 
 
-## Prior art
-`src-mq` is heavily inspired by [sass-mq](https://github.com/sass-mq/sass-mq).
+## Acknowledgements
+_src-mq_ is heavily inspired by [sass-mq](https://github.com/sass-mq/sass-mq).
 
 It's extracted from work [originally done at the Guardian](https://github.com/guardian/dotcom-rendering/pull/21) as part of the new rendering tier, and now being rolled into their [Source Design System](https://github.com/guardian/source-components).
 
