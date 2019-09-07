@@ -8,7 +8,7 @@ describe('until', () => {
 
 describe('from', () => {
 	test('is a weird old beast', () => {
-		expect(from.small.toString()).toBe('@media all and (min-width: 30em)')
+		expect(`${from.small}`).toBe('@media all and (min-width: 30em)')
 		expect(from.small.until.medium).toBe(
 			'@media all and (min-width: 30em) and (max-width: 46.1875em)',
 		)
