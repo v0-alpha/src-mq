@@ -1,12 +1,11 @@
 import {
 	breakpoints,
+	Breakpoints,
 	extendBreakpoints,
 	resetBreakpoints,
 	setBreakpoints,
 } from './config'
 import { fromQuery, fromUntilQuery, untilQuery } from './media-queries'
-
-type Breakpoints = keyof typeof breakpoints
 
 type Until = { [key in Breakpoints]: string }
 
