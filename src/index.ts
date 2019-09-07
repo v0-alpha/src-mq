@@ -37,6 +37,7 @@ export const from = Object.entries(breakpoints).reduce(
 					}),
 					{},
 				),
+			// this piece of freaky genius by @SiAdcock
 			toString: () => fromQuery(fromWidth),
 		},
 		...froms,
