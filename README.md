@@ -24,7 +24,7 @@ The default is `all`.
 
 ## Usage
 
-There are two main ways of applying breakpoints:
+There are two ways of applying breakpoints:
 
 - `from` (applies from `breakpoint.value`)
 - `until` (applies until `breakpoint.value - 1`)
