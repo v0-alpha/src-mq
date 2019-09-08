@@ -31,7 +31,7 @@ const styles = {
 type Until = {
 	[key in Breakpoints]: {
 		toString: () => string
-		for: (arg0: string) => string
+		for: (mediaType: string) => string
 	}
 }
 
@@ -39,7 +39,7 @@ type From = {
 	[key in Breakpoints]: {
 		toString: () => string
 		until: Until
-		for: (arg0: string) => string
+		for: (mediaType: string) => string
 	}
 }
 
@@ -47,7 +47,7 @@ export const until = Object.entries(breakpoints).reduce(
 	(untils, [untilName, untilWidth]) => ({
 		[untilName]: {
 			toString: () => untilQuery(untilWidth),
-			for: (type: string) => untilQuery(untilWidth, type),
+			for: (mediaType: string) => untilQuery(untilWidth, mediaType),
 		},
 		...untils,
 	}),
@@ -58,15 +58,15 @@ export const from = Object.entries(breakpoints).reduce(
 	(froms, [fromName, fromWidth], i) => ({
 		[fromName]: {
 			toString: () => fromQuery(fromWidth),
-			for: (type: string) => fromQuery(fromWidth, type),
+			for: (mediaType: string) => fromQuery(fromWidth, mediaType),
 			until: Object.entries(breakpoints)
 				.splice(i + 1)
 				.reduce(
 					(untils, [untilName, untilWidth], i) => ({
 						[untilName]: {
 							toString: () => fromUntilQuery(fromWidth, untilWidth),
-							for: (type: string) =>
-								fromUntilQuery(fromWidth, untilWidth, type),
+							for: (mediaType: string) =>
+								fromUntilQuery(fromWidth, untilWidth, mediaType),
 						},
 						...untils,
 					}),
