@@ -57,7 +57,7 @@ Set an explicit media type. See __for__ below.
 Type: `Object.<breakpoint>`
 
 - set a maximum width of __breakpoint__ − 1px
-- can be chained to the result of a __from__
+- can be chained to a __from__
 - when used as a string, it yields a media query
 
 ##### Example
