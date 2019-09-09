@@ -11,15 +11,15 @@
 import { from, until } from 'src-mq'
 
 const styles = {
-	p {
-		[from.small]: { ... },
-		
-		[until.large]: { ... },
-		
-		[from.small.until.large]: { ... },
-		
-		[from.small.until.large.for.screen]: { ... },
-	}
+
+	[from.small]: { ... },
+
+	[until.large]: { ... },
+
+	[from.small.until.large]: { ... },
+
+	[from.small.until.large.for.screen]: { ... },
+
 }
 ```
 
@@ -157,7 +157,7 @@ resetBreakpoints()
 ```
 
 ## Complex queries
-By design, _src-mq_ is limited to media type and min/max-width expressions. 
+By design, _src-mq_ is limited to media type and min/max-width expressions.
 
 To generate more complex queries than this, you can concatenate its output with any valid media feature expressions, for example:
 
