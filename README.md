@@ -23,23 +23,6 @@ const styles = {
 }
 ```
 
-## Defaults
-
-### Breakpoints
-
-- `xxSmall` (320 pixels)
-- `xSmall` (375 pixels)
-- `small` (480 pixels)
-- `medium` (740 pixels)
-- `large` (980 pixels)
-- `xLarge` (1140 pixels)
-- `xxLarge` (1300 pixels)
-
-_Breakpoint values are output to CSS as ems, assuming 1em = 16px._
-
-### Media type
-`@media all`
-
 ## API
 
 ### from
@@ -114,9 +97,25 @@ For example:
 @media speech and (min-width: 30em) and (max-width: 61.1875em) { ... }
 ```
 
+## Defaults
+
+### Breakpoints
+
+- `xxSmall` (320 pixels)
+- `xSmall` (375 pixels)
+- `small` (480 pixels)
+- `medium` (740 pixels)
+- `large` (980 pixels)
+- `xLarge` (1140 pixels)
+- `xxLarge` (1300 pixels)
+
+_Breakpoint values are output to CSS as ems, assuming 1em = 16px._
+
+### Media type
+`@media all`
 
 
-## Customising breakpoints
+## Overriding defaults
 
 The default set of breakpoints can be replaced, extended or restored:
 
