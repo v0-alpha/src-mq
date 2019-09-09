@@ -42,7 +42,7 @@ Breakpoint values are output as ems, assuming an em is 16 pixels.
 
 ## API
 
-### from.[breakpoint]
+### from[breakpoint]
 
 Apply rules from __breakpoint__ width, for example:
 
@@ -52,7 +52,7 @@ Apply rules from __breakpoint__ width, for example:
 @media all and (min-width: 30em) { ... }
 ```
 
-### until.[breakpoint]
+### until[breakpoint]
 
 Apply rules until one pixel before __breakpoint__ width, for example:
 
@@ -62,7 +62,7 @@ Apply rules until one pixel before __breakpoint__ width, for example:
 @media all and (max-width: 61.1875em) { ... }
 ```
 
-### from.[breakpoint1].until.[breakpoint2]
+### from[breakpoint1].until[breakpoint2]
 
 Apply rules from __breakpoint1__ width, until one pixel before __breakpoint2__ width, for example:
 
@@ -72,7 +72,7 @@ Apply rules from __breakpoint1__ width, until one pixel before __breakpoint2__ w
 @media all and (min-width: 30em) and (max-width: 61.1875em) { ... }
 ```
 
-### [...].for.[`screen` | `print` | `speech`]
+### [...].for[`screen`, `print`, `speech`]
 
 Apply rules for `screen`, `print` or `speech`, rather than the default `all`, for example:
 
