@@ -16,7 +16,7 @@ const styles = {
 
 	[until.large()]: { ... },
 
-	[from.small.until.large.for.screen()]: { ... },
+	[from.small.until.large]: { ... },
 
 	[from.small.until.large.for.screen()]: { ... },
 
