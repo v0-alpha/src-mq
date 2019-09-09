@@ -83,11 +83,11 @@ Set an explicit media type. See __for__ below.
 
 Type: `Object.(screen | print | speech)`
 
-- can only be used as a refinment of __from__ or __until__
+- can only be used when chained to a __from__ or __until__
 - overrides the default media type (`all`), with any of the following:
- - `screen`
- - `print`
- - `speech`
+  - `screen`
+  - `print`
+  - `speech`
 
 ##### Example
 
