@@ -5,6 +5,32 @@
 [![Build Status](https://travis-ci.org/src-mq/src-mq.svg?branch=master)](https://travis-ci.org/src-mq/src-mq)
 [![codecov](https://codecov.io/gh/src-mq/src-mq/branch/master/graph/badge.svg)](https://codecov.io/gh/src-mq/src-mq)
 
+### Example
+
+```js
+import { from, until } from 'src-mq'
+
+const styles = {
+	p {
+		[from.small]: { 
+			content: "same as '@media all and (min-width: 30em)'"
+		},
+		
+		[until.large]: { 
+			content: "same as ''"
+		},
+		
+		[from.small.until.large]: { 
+			content: "same as '@media all and (min-width: 30em) and (max-width: 61.1875em)'"
+		},
+		
+		[from.small.until.large.for.print]: { 
+			content: "same as '@media print and (min-width: 30em) and (max-width: 61.1875em)'"
+		},
+	}
+}
+```
+
 ## Defaults
 
 ### Breakpoints
@@ -17,73 +43,68 @@
 - `xLarge` (1140 pixels)
 - `xxLarge` (1300 pixels)
 
-_n.b. breakpoint values are converted to ems, assuming an em is 16 pixels._
+Breakpoint values are output as ems, assuming an em is 16 pixels.
 
-### @media type
-The default is `all`.
+### Media type
+`@media all`
 
-## Usage
+## API
 
-There are two ways of applying breakpoints:
+### from.[breakpoint]
 
-- `from`
-- `until`
+Apply rules from __breakpoint__, for example:
 
-```js
-import { from, until } from 'src-mq'
+```css
+/* {[from.small]: { ... }} */
 
-const styles = {
-
-	[until.medium]: {
-		color: 'green',
-	},
-
-	[from.large]: {
-		color: 'red',
-	},
-
-}
+@media all and (min-width: 30em) { ... }
 ```
 
-_n.b. `from`  applies from the breakpoint, `until` applies until the breakpoint minus one pixel._
+### until.[breakpoint]
 
-### Ranges
+Apply rules until one pixel before __breakpoint__, for example:
 
-`from` can also chain an `until`, to apply styles _between_ two breakpoints:
+```css
+/* {[until.large]: { ... }} */
 
-```js
-import { from } from 'src-mq'
-
-const styles = {
-
-	[from.small.until.medium]: {
-		color: 'blue',
-	},
-
-}
+@media all and (max-width: 61.1875em) { ... }
 ```
 
-### Custom @media types
+### from.[breakpoint1].until.[breakpoint2]
 
-Both techniques can chain an optional `for()` method, allowing you set a media type per query:
+Apply rules from __breakpoint1__ until one pixel before __breakpoint2__, for example:
 
-```js
-import { from, until } from 'src-mq'
+```css
+/* {[from.small.until.large]: { ... }} */
 
-const styles = {
-
-	[until.medium.for('print')]: {
-		color: 'green',
-	},
-
-	[from.large.for('screen and print')]: {
-		color: 'red',
-	},
-
-}
+@media all and (min-width: 30em) and (max-width: 61.1875em) { ... }
 ```
 
-## Using your own breakpoints
+### [...].for.[`screen` | `print` | `speech`]
+
+Apply rules for `screen`, `print` or `speech`, rather than the default `all`, for example:
+
+```css
+/* {[from.small.for.screen]: { ... }} */
+
+@media screen and (min-width: 30em) { ... }
+```
+
+```css
+/* {[until.large.for.print]: { ... }} */
+
+@media print and (min-width: 30em) { ... }
+```
+
+```css
+/* {[from.small.until.large.for.speech]: { ... }} */
+
+@media speech and (min-width: 30em) and (max-width: 61.1875em) { ... }
+```
+
+
+
+## Customising breakpoints
 
 The default set of breakpoints can be replaced, extended or restored:
 
@@ -147,6 +168,6 @@ resetBreakpoints()
 ## Acknowledgements
 _src-mq_ is heavily inspired by [sass-mq](https://github.com/sass-mq/sass-mq).
 
-It's extracted from work [originally done at the Guardian](https://github.com/guardian/dotcom-rendering/pull/21) that is now being rolled into their [Source Design System](https://github.com/guardian/source-components).
+It's extracted from work [originally done at the Guardian](https://github.com/guardian/dotcom-rendering/pull/21) and that is now being rolled into their [Source Design System](https://github.com/guardian/source-components).
 
 Hence the name 💃.
