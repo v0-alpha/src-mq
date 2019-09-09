@@ -85,7 +85,7 @@ Apply rules for `screen`, `print` or `speech`, rather than the default `all`, fo
 ```css
 /* {[until.large.for.print]: { ... }} */
 
-@media print and (min-width: 30em) { ... }
+@media print and (max-width: 61.1875em) { ... }
 ```
 
 ```css
