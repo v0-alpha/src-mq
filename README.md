@@ -111,7 +111,12 @@ Type: `Object.(screen | print | speech)`
 
 ## Defaults
 
-### Breakpoints
+_src-mq_ provides a reasonable set of defaults:
+
+#### Media type
+`all`
+
+#### Breakpoints
 
 - `xxSmall` (320 pixels)
 - `xSmall` (375 pixels)
@@ -123,13 +128,10 @@ Type: `Object.(screen | print | speech)`
 
 _Breakpoint values are output to CSS as ems, assuming 1em = 16px._
 
-### Media type
-`@media all`
 
+## Overriding breakpoints
 
-## Overriding defaults
-
-The default set of breakpoints can be replaced, extended or restored:
+If the default breakpoints do not work for you, they can be replaced, extended or restored:
 
 ```js
 import {
@@ -188,9 +190,9 @@ resetBreakpoints()
 ```
 
 ## Complex queries
-By design, _src-mq_ is limited to media type and min/max-width expressions.
+By design, _src-mq_ is limited to media type and min/max-width feature expressions.
 
-To generate more complex queries than this, you can concatenate its output with any valid media feature expressions, for example:
+To generate more complex queries than this, you can concatenate its output with any other valid feature expressions, for example:
 
 ```css
 /* {[from.small + " and (prefers-reduced-motion: reduce)"]: { ... }} */
