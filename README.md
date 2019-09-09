@@ -25,7 +25,7 @@ const styles = {
 
 ## API
 
-### from
+### `from`
 
 Type: `Object.<breakpoint>`
 
@@ -39,16 +39,19 @@ Restricts styles to media as wide as or wider than __breakpoint__, for example:
 
 When used without further refinement, it yields the media query we've constructed up to this point.
 
-##### until
+#### Optional refinement
 
-Optional refinement of `from.<breakpoint>`. See __until__ below.
+##### `.until`
 
-##### for
+See __.until__ below.
 
-Optional refinement of `from.<breakpoint>`. See __for__ below.
+##### `.for`
 
+See __.for__ below.
 
-### until
+<hr />
+
+### `until` / `.until`
 
 Type: `Object.<breakpoint>`
 
@@ -60,14 +63,22 @@ Restricts styles to media narrower than __breakpoint__, for example:
 @media all and (max-width: 61.1875em) { ... }
 ```
 
+```css
+/* {[from.small.until.large]: { ... }} */
+
+@media all and (min-width: 30em) and (max-width: 61.1875em) { ... }
+```
+
 When used without further refinement, it yields the media query we've constructed up this point.
 
-##### for
+#### Optional refinement
 
-Optional refinement of `fromBreakpointName`. See __for__ below.
+##### `.for`
+
+Optional refinement of `fromBreakpointName`. See __.for__ below.
 
 
-### for
+### `.for`
 
 Type: `Object.(screen | print | speech)`
 
