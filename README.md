@@ -42,9 +42,11 @@ Breakpoint values are output as ems, assuming an em is 16 pixels.
 
 ## API
 
-### from[breakpoint]
+### from
 
-Apply rules from __breakpoint__ width, for example:
+Type: `Object.<breakpoint>`
+
+Restricts styles to media as wide as or wider than __breakpoint__, for example:
 
 ```css
 /* {[from.small]: { ... }} */
@@ -52,9 +54,22 @@ Apply rules from __breakpoint__ width, for example:
 @media all and (min-width: 30em) { ... }
 ```
 
-### until[breakpoint]
+When used without further refinement, it yields the media query we've constructed up to this point.
 
-Apply rules until one pixel before __breakpoint__ width, for example:
+##### until
+
+Optional refinement of `from.<breakpoint>`. See __until__ below.
+
+##### for
+
+Optional refinement of `from.<breakpoint>`. See __for__ below.
+
+
+### until
+
+Type: `Object.<breakpoint>`
+
+Restricts styles to media narrower than __breakpoint__, for example:
 
 ```css
 /* {[until.large]: { ... }} */
@@ -62,19 +77,24 @@ Apply rules until one pixel before __breakpoint__ width, for example:
 @media all and (max-width: 61.1875em) { ... }
 ```
 
-### from[breakpoint1].until[breakpoint2]
+When used without further refinement, it yields the media query we've constructed up this point.
 
-Apply rules between __breakpoint1__ width and one pixel before __breakpoint2__ width, for example:
+##### for
 
-```css
-/* {[from.small.until.large]: { ... }} */
+Optional refinement of `fromBreakpointName`. See __for__ below.
 
-@media all and (min-width: 30em) and (max-width: 61.1875em) { ... }
-```
 
-### [ ... ].for[`screen`, `print`, `speech`]
+### for
 
-Apply rules for `screen`, `print` or `speech`, rather than the default `all`, for example:
+Type: `Object.(screen | print | speech)`
+
+Overrides the default media type of `all`, and restricts styles to media of types:
+
+- `screen`
+- `print`
+- `speech`
+
+For example:
 
 ```css
 /* {[from.small.for.screen]: { ... }} */
