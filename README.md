@@ -12,99 +12,79 @@ import { from, until } from 'src-mq'
 
 const styles = {
 
-	[from.small]: { ... },
+	[from.small()]: { ... },
 
-	[until.large]: { ... },
+	[until.large()]: { ... },
 
-	[from.small.until.large]: { ... },
+	[from.small.until.large({media: 'screen')]: { ... },
 
-	[from.small.until.large.for.screen]: { ... },
+	[from.small.until.large.for('screen')]: { ... },
 
 }
 ```
 
 ## API
 
-### `from`
+#### `from<breakpoint>`
 
-Type: `Object.<breakpoint>`
+Type: `function`
 
-- set a minimum width of __breakpoint__
-- when used as a string, it yields a media query
-
-##### Example
+Returns a media query that limits styles to media with a minimum width of __breakpoint__.
 
 ```css
-/* {[from.small]: { ... }} */
+/* {[from.small()]: { ... }} */
 
 @media all and (min-width: 30em) { ... }
 ```
 
-The scope of the query can be restricted by chaining further refinements:
+#### `until<breakpoint>`
 
-##### `.until`
+Type: `function`
 
-Set a maximum width. See __until__ below.
-
-##### `.for`
-
-Set an explicit media type. See __for__ below.
-
-### `until`
-
-Type: `Object.<breakpoint>`
-
-- set a maximum width of __breakpoint__ − 1px
-- can be chained to a __from__
-- when used as a string, it yields a media query
-
-##### Example
+Returns a media query that limits styles to media with a maximum width of __breakpoint__ − 1px.
 
 ```css
-/* {[until.large]: { ... }} */
+/* {[until.large()]: { ... }} */
 
 @media all and (max-width: 61.1875em) { ... }
 ```
 
+#### `from<fromBreakpoint>.until<untilBreakpoint>`
+
+Type: `function`
+
+Returns a media query that limits styles to media with a minimum width of __fromBreakpoint__ and a maximum width of __untilBreakpoint__ − 1px.
+
 ```css
-/* {[from.small.until.large]: { ... }} */
+/* {[from.small.until.large()]: { ... }} */
 
 @media all and (min-width: 30em) and (max-width: 61.1875em) { ... }
 ```
 
-As with __from__, the scope of the query can be restricted by chaining a further refinement:
+#### `.for`
 
-##### `.for`
+Type: `function`
 
-Set an explicit media type. See __for__ below.
-
-
-### `.for`
-
-Type: `Object.(screen | print | speech)`
-
+- specifies the [media type](https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries#Media_types)
 - can only be used when chained to a __from__ or __until__
-- overrides the default media type (`all`), with any of the following:
-  - `screen`
-  - `print`
-  - `speech`
+
 
 ##### Example
 
 ```css
-/* {[from.small.for.screen]: { ... }} */
+/* {[from.small.for('screen')]: { ... }} */
 
 @media screen and (min-width: 30em) { ... }
 ```
 
 ```css
-/* {[until.large.for.print]: { ... }} */
+/* {[until.large.for('print')]: { ... }} */
 
 @media print and (max-width: 61.1875em) { ... }
 ```
 
 ```css
-/* {[from.small.until.large.for.speech]: { ... }} */
+/* {[from.small.until.large.for('speech')]: { ... }} */
 
 @media speech and (min-width: 30em) and (max-width: 61.1875em) { ... }
 ```
@@ -150,7 +130,7 @@ import {
 // 	- xLarge (1140 pixels)
 // 	- xxLarge (1300 pixels)
 //
-// You can do [from.small.until.medium] etc.
+// You can do [from.small.until.medium()] etc.
 
 setBreakpoints({ tiny: 1, massive: 10000000 })
 
@@ -159,8 +139,8 @@ setBreakpoints({ tiny: 1, massive: 10000000 })
 // 	- tiny (1 pixel)
 // 	- massive (10000000 pixels)
 //
-// Now you can do [from.tiny.until.massive],
-// but not [from.small.until.medium] etc.
+// Now you can do [from.tiny.until.massive()],
+// but not [from.small.until.medium()] etc.
 
 extendBreakpoints({ infinitesimal: 0.00000001 })
 
@@ -170,7 +150,7 @@ extendBreakpoints({ infinitesimal: 0.00000001 })
 // 	- tiny (1 pixel)
 // 	- massive (10000000 pixels)
 //
-// Now you can do [from.infinitesimal.until.massive] etc.
+// Now you can do [from.infinitesimal.until.massive()] etc.
 
 resetBreakpoints()
 
@@ -184,8 +164,8 @@ resetBreakpoints()
 // 	- xLarge (1140 pixels)
 // 	- xxLarge (1300 pixels)
 //
-// Now you can do [from.small.until.medium],
-// but not [from.tiny.until.massive] etc.
+// Now you can do [from.small.until.medium()],
+// but not [from.tiny.until.massive()] etc.
 
 ```
 
@@ -195,7 +175,7 @@ By design, _src-mq_ is limited to media type and min/max-width feature expressio
 To generate more complex queries than this, you can concatenate its output with any other valid feature expressions, for example:
 
 ```css
-/* {[from.small + " and (prefers-reduced-motion: reduce)"]: { ... }} */
+/* {[from.small() + " and (prefers-reduced-motion: reduce)"]: { ... }} */
 
 @media all and (min-width: 30em) and (prefers-reduced-motion: reduce) { ... }
 ```
