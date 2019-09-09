@@ -29,7 +29,7 @@ const styles = {
 
 Type: `Object.<breakpoint>`
 
-- set a minimum width of `breakpoint`
+- set a minimum width of __breakpoint__
 - when used as a string, it yields a media query
 
 ##### Example
