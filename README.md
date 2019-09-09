@@ -18,7 +18,7 @@ const styles = {
 		
 		[from.small.until.large]: { ... },
 		
-		[from.small.until.large.for.print]: { ... },
+		[from.small.until.large.for.screen]: { ... },
 	}
 }
 ```
