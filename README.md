@@ -35,7 +35,7 @@ const styles = {
 - `xLarge` (1140 pixels)
 - `xxLarge` (1300 pixels)
 
-Breakpoint values are output as ems, assuming an em is 16 pixels.
+_Breakpoint values are output to CSS as ems, assuming 1em = 16px._
 
 ### Media type
 `@media all`
