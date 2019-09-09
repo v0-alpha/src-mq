@@ -44,7 +44,7 @@ Breakpoint values are output as ems, assuming an em is 16 pixels.
 
 ### from.[breakpoint]
 
-Apply rules from __breakpoint__, for example:
+Apply rules from __breakpoint__ width, for example:
 
 ```css
 /* {[from.small]: { ... }} */
@@ -54,7 +54,7 @@ Apply rules from __breakpoint__, for example:
 
 ### until.[breakpoint]
 
-Apply rules until one pixel before __breakpoint__, for example:
+Apply rules until one pixel before __breakpoint__ width, for example:
 
 ```css
 /* {[until.large]: { ... }} */
@@ -64,7 +64,7 @@ Apply rules until one pixel before __breakpoint__, for example:
 
 ### from.[breakpoint1].until.[breakpoint2]
 
-Apply rules from __breakpoint1__ until one pixel before __breakpoint2__, for example:
+Apply rules from __breakpoint1__ width, until one pixel before __breakpoint2__ width, for example:
 
 ```css
 /* {[from.small.until.large]: { ... }} */
