@@ -31,12 +31,22 @@ Type: `function`
 
 Returns a media query that limits styles to media with a minimum width of **breakpoint**.
 
-```css
+```scss
 /* {[from.small()]: { ... }} */
 
-@media all and (min-width: 30em) {
-	...;
-}
+@media all and (min-width: 30em) { ... }
+```
+
+#### `from<breakpoint>.for[screen | print | speech]`
+
+Type: `function`
+
+Returns a media query that limits styles to media with a minimum width of **breakpoint** and the specified media type.
+
+```scss
+/* {[from.small.for.screen()]: { ... }} */
+
+@media screen and (min-width: 30em) { ... }
 ```
 
 #### `until<breakpoint>`
@@ -45,12 +55,22 @@ Type: `function`
 
 Returns a media query that limits styles to media with a maximum width of **breakpoint** − 1px.
 
-```css
+```scss
 /* {[until.large()]: { ... }} */
 
-@media all and (max-width: 61.1875em) {
-	...;
-}
+@media all and (max-width: 61.1875em) { ... }
+```
+
+#### `until<breakpoint>.for[screen | print | speech]`
+
+Type: `function`
+
+Returns a media query that limits styles to media with a maximum width of **breakpoint** − 1px and the specified media type.
+
+```scss
+/* {[until.large.for.screen()]: { ... }} */
+
+@media screen and (max-width: 61.1875em) { ... }
 ```
 
 #### `from<fromBreakpoint>.until<untilBreakpoint>`
@@ -59,45 +79,22 @@ Type: `function`
 
 Returns a media query that limits styles to media with a minimum width of **fromBreakpoint** and a maximum width of **untilBreakpoint** − 1px.
 
-```css
+```scss
 /* {[from.small.until.large()]: { ... }} */
 
-@media all and (min-width: 30em) and (max-width: 61.1875em) {
-	...;
-}
+@media all and (min-width: 30em) and (max-width: 61.1875em) { ... }
 ```
 
-#### `.for`
+#### `from<fromBreakpoint>.until<untilBreakpoint>.for[screen | print | speech]`
 
 Type: `function`
 
-- specifies the [media type](https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries#Media_types)
-- can only be used when chained to a **from** or **until**
+Returns a media query that limits styles to media with a minimum width of **fromBreakpoint** and a maximum width of **untilBreakpoint** − 1px and the specified media type.
 
-##### Example
+```scss
+/* {[from.small.until.large.for.screen()]: { ... }} */
 
-```css
-/* {[from.small.for.screen()]: { ... }} */
-
-@media screen and (min-width: 30em) {
-	...;
-}
-```
-
-```css
-/* {[until.large.for.print()]: { ... }} */
-
-@media print and (max-width: 61.1875em) {
-	...;
-}
-```
-
-```css
-/* {[from.small.until.large.for.speech()]: { ... }} */
-
-@media speech and (min-width: 30em) and (max-width: 61.1875em) {
-	...;
-}
+@media screen and (min-width: 30em) and (max-width: 61.1875em) { ... }
 ```
 
 ## Defaults
@@ -181,12 +178,10 @@ By design, _src-mq_ is limited to media type and min/max-width feature expressio
 
 To generate more complex queries than this, you can concatenate its output with any other valid feature expressions, for example:
 
-```css
+```scss
 /* {[from.small.for.screen() + " and (prefers-reduced-motion: reduce)"]: { ... }} */
 
-@media screen and (min-width: 30em) and (prefers-reduced-motion: reduce) {
-	...;
-}
+@media screen and (min-width: 30em) and (prefers-reduced-motion: reduce) { ... }
 ```
 
 ## Acknowledgements
