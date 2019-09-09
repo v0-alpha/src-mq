@@ -12,21 +12,13 @@ import { from, until } from 'src-mq'
 
 const styles = {
 	p {
-		[from.small]: { 
-			content: "same as '@media all and (min-width: 30em)'"
-		},
+		[from.small]: { ... },
 		
-		[until.large]: { 
-			content: "same as ''"
-		},
+		[until.large]: { ... },
 		
-		[from.small.until.large]: { 
-			content: "same as '@media all and (min-width: 30em) and (max-width: 61.1875em)'"
-		},
+		[from.small.until.large]: { ... },
 		
-		[from.small.until.large.for.print]: { 
-			content: "same as '@media print and (min-width: 30em) and (max-width: 61.1875em)'"
-		},
+		[from.small.until.large.for.print]: { ... },
 	}
 }
 ```
