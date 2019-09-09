@@ -29,7 +29,10 @@ const styles = {
 
 Type: `Object.<breakpoint>`
 
-Restricts styles to media as wide as or wider than __breakpoint__, for example:
+- set a minimum width of `breakpoint`
+- when used as a string, it yields a media query
+
+##### Example
 
 ```css
 /* {[from.small]: { ... }} */
@@ -37,25 +40,27 @@ Restricts styles to media as wide as or wider than __breakpoint__, for example:
 @media all and (min-width: 30em) { ... }
 ```
 
-When used without further refinement, it yields the media query we've constructed up to this point.
+#### Refinement
 
-#### Optional refinement
+The scope of the query can be restricted by chaining further refinements:
 
 ##### `.until`
 
-See __.until__ below.
+Set a maximum width. See __until__ below.
 
 ##### `.for`
 
-See __.for__ below.
+Set an explicit media type. See __for__ below.
 
-<hr />
-
-### `until` / `.until`
+### `until`
 
 Type: `Object.<breakpoint>`
 
-Restricts styles to media narrower than __breakpoint__, for example:
+- set a maximum width of __breakpoint__ − 1px
+- can be chained to the result of a __from__
+- when used as a string, it yields a media query
+
+##### Example
 
 ```css
 /* {[until.large]: { ... }} */
@@ -69,26 +74,26 @@ Restricts styles to media narrower than __breakpoint__, for example:
 @media all and (min-width: 30em) and (max-width: 61.1875em) { ... }
 ```
 
-When used without further refinement, it yields the media query we've constructed up this point.
+#### Refinement
 
-#### Optional refinement
+As with __from__, the scope of the query can be restricted by chaining a further refinement:
 
 ##### `.for`
 
-Optional refinement of `fromBreakpointName`. See __.for__ below.
+Set an explicit media type. See __for__ below.
 
 
 ### `.for`
 
 Type: `Object.(screen | print | speech)`
 
-Overrides the default media type of `all`, and restricts styles to media of types:
+- can only be used as a refinment of __from__ or __until__
+- overrides the default media type (`all`), with any of the following:
+ - `screen`
+ - `print`
+ - `speech`
 
-- `screen`
-- `print`
-- `speech`
-
-For example:
+##### Example
 
 ```css
 /* {[from.small.for.screen]: { ... }} */
