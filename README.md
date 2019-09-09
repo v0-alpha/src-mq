@@ -7,7 +7,6 @@
 ![npm type definitions](https://img.shields.io/npm/types/src-mq)
 ![npm bundle size](https://img.shields.io/bundlephobia/minzip/src-mq)
 
-
 ### Example
 
 ```js
@@ -28,11 +27,15 @@ const styles = {
 
 ## API
 
+### from
+
 #### `from<breakpoint>`
 
 Type: `function`
 
-Returns a media query that limits styles to media with a minimum width of **breakpoint**.
+Returns a media query scoped to:
+
+- a minimum width of **breakpoint**
 
 ```scss
 /* {[from.small()]: { ... }} */
@@ -40,23 +43,29 @@ Returns a media query that limits styles to media with a minimum width of **brea
 @media all and (min-width: 30em) { ... }
 ```
 
-#### `from<breakpoint>.for[screen | print | speech]`
+#### `from<breakpoint>.for[screen, print, speech]`
 
 Type: `function`
 
-Returns a media query that limits styles to media with a minimum width of **breakpoint** and the specified media type.
+Returns a media query scoped to:
+
+- a minimum width of **breakpoint**
+- the specified media type
 
 ```scss
 /* {[from.small.for.screen()]: { ... }} */
 
 @media screen and (min-width: 30em) { ... }
 ```
+### until
 
 #### `until<breakpoint>`
 
 Type: `function`
 
-Returns a media query that limits styles to media with a maximum width of **breakpoint** − 1px.
+Returns a media query scoped to:
+
+- a maximum width of **breakpoint** − 1px
 
 ```scss
 /* {[until.large()]: { ... }} */
@@ -64,11 +73,14 @@ Returns a media query that limits styles to media with a maximum width of **brea
 @media all and (max-width: 61.1875em) { ... }
 ```
 
-#### `until<breakpoint>.for[screen | print | speech]`
+#### `until<breakpoint>.for[screen, print, speech]`
 
 Type: `function`
 
-Returns a media query that limits styles to media with a maximum width of **breakpoint** − 1px and the specified media type.
+Returns a media query scoped to:
+
+- a maximum width of **breakpoint** − 1px
+- the specified media type
 
 ```scss
 /* {[until.large.for.screen()]: { ... }} */
@@ -76,11 +88,16 @@ Returns a media query that limits styles to media with a maximum width of **brea
 @media screen and (max-width: 61.1875em) { ... }
 ```
 
+### from...until
+
 #### `from<fromBreakpoint>.until<untilBreakpoint>`
 
 Type: `function`
 
-Returns a media query that limits styles to media with a minimum width of **fromBreakpoint** and a maximum width of **untilBreakpoint** − 1px.
+Returns a media query scoped to:
+
+- a minimum width of **fromBreakpoint**
+- a maximum width of **untilBreakpoint** − 1px
 
 ```scss
 /* {[from.small.until.large()]: { ... }} */
@@ -88,11 +105,15 @@ Returns a media query that limits styles to media with a minimum width of **from
 @media all and (min-width: 30em) and (max-width: 61.1875em) { ... }
 ```
 
-#### `from<fromBreakpoint>.until<untilBreakpoint>.for[screen | print | speech]`
+#### `from<fromBreakpoint>.until<untilBreakpoint>.for[screen, print, speech]`
 
 Type: `function`
 
-Returns a media query that limits styles to media with a minimum width of **fromBreakpoint** and a maximum width of **untilBreakpoint** − 1px and the specified media type.
+Returns a media query that limits styles to media:
+
+- a minimum width of **fromBreakpoint**
+- a maximum width of **untilBreakpoint** − 1px
+- the specified media type
 
 ```scss
 /* {[from.small.until.large.for.screen()]: { ... }} */
