@@ -143,7 +143,7 @@ _Breakpoint values are output to CSS as ems, assuming 1em = 16px._
 
 ## Overriding breakpoints
 
-If the default breakpoints do not work for you, they can be replaced, extended or restored:
+The default breakpoints can be replaced, extended or restored:
 
 ```js
 import { setBreakpoints, extendBreakpoints, resetBreakpoints } from 'src-mq'
