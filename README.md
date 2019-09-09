@@ -40,8 +40,6 @@ Type: `Object.<breakpoint>`
 @media all and (min-width: 30em) { ... }
 ```
 
-#### Refinement
-
 The scope of the query can be restricted by chaining further refinements:
 
 ##### `.until`
@@ -73,8 +71,6 @@ Type: `Object.<breakpoint>`
 
 @media all and (min-width: 30em) and (max-width: 61.1875em) { ... }
 ```
-
-#### Refinement
 
 As with __from__, the scope of the query can be restricted by chaining a further refinement:
 
