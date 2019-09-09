@@ -16,9 +16,9 @@ const styles = {
 
 	[until.large()]: { ... },
 
-	[from.small.until.large({media: 'screen')]: { ... },
+	[from.small.until.large.for.screen()]: { ... },
 
-	[from.small.until.large.for('screen')]: { ... },
+	[from.small.until.large.for.screen()]: { ... },
 
 }
 ```
@@ -29,36 +29,42 @@ const styles = {
 
 Type: `function`
 
-Returns a media query that limits styles to media with a minimum width of __breakpoint__.
+Returns a media query that limits styles to media with a minimum width of **breakpoint**.
 
 ```css
 /* {[from.small()]: { ... }} */
 
-@media all and (min-width: 30em) { ... }
+@media all and (min-width: 30em) {
+	...;
+}
 ```
 
 #### `until<breakpoint>`
 
 Type: `function`
 
-Returns a media query that limits styles to media with a maximum width of __breakpoint__ − 1px.
+Returns a media query that limits styles to media with a maximum width of **breakpoint** − 1px.
 
 ```css
 /* {[until.large()]: { ... }} */
 
-@media all and (max-width: 61.1875em) { ... }
+@media all and (max-width: 61.1875em) {
+	...;
+}
 ```
 
 #### `from<fromBreakpoint>.until<untilBreakpoint>`
 
 Type: `function`
 
-Returns a media query that limits styles to media with a minimum width of __fromBreakpoint__ and a maximum width of __untilBreakpoint__ − 1px.
+Returns a media query that limits styles to media with a minimum width of **fromBreakpoint** and a maximum width of **untilBreakpoint** − 1px.
 
 ```css
 /* {[from.small.until.large()]: { ... }} */
 
-@media all and (min-width: 30em) and (max-width: 61.1875em) { ... }
+@media all and (min-width: 30em) and (max-width: 61.1875em) {
+	...;
+}
 ```
 
 #### `.for`
@@ -66,27 +72,32 @@ Returns a media query that limits styles to media with a minimum width of __from
 Type: `function`
 
 - specifies the [media type](https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries#Media_types)
-- can only be used when chained to a __from__ or __until__
-
+- can only be used when chained to a **from** or **until**
 
 ##### Example
 
 ```css
-/* {[from.small.for('screen')]: { ... }} */
+/* {[from.small.for.screen()]: { ... }} */
 
-@media screen and (min-width: 30em) { ... }
+@media screen and (min-width: 30em) {
+	...;
+}
 ```
 
 ```css
-/* {[until.large.for('print')]: { ... }} */
+/* {[until.large.for.print()]: { ... }} */
 
-@media print and (max-width: 61.1875em) { ... }
+@media print and (max-width: 61.1875em) {
+	...;
+}
 ```
 
 ```css
-/* {[from.small.until.large.for('speech')]: { ... }} */
+/* {[from.small.until.large.for.speech()]: { ... }} */
 
-@media speech and (min-width: 30em) and (max-width: 61.1875em) { ... }
+@media speech and (min-width: 30em) and (max-width: 61.1875em) {
+	...;
+}
 ```
 
 ## Defaults
@@ -94,6 +105,7 @@ Type: `function`
 _src-mq_ provides a reasonable set of defaults:
 
 #### Media type
+
 `all`
 
 #### Breakpoints
@@ -108,17 +120,12 @@ _src-mq_ provides a reasonable set of defaults:
 
 _Breakpoint values are output to CSS as ems, assuming 1em = 16px._
 
-
 ## Overriding breakpoints
 
 If the default breakpoints do not work for you, they can be replaced, extended or restored:
 
 ```js
-import {
-	setBreakpoints,
-	extendBreakpoints,
-	resetBreakpoints,
-} from 'src-mq'
+import { setBreakpoints, extendBreakpoints, resetBreakpoints } from 'src-mq'
 
 // Breakpoints are the default set:
 //
@@ -166,22 +173,24 @@ resetBreakpoints()
 //
 // Now you can do [from.small.until.medium()],
 // but not [from.tiny.until.massive()] etc.
-
 ```
 
 ## Complex queries
+
 By design, _src-mq_ is limited to media type and min/max-width feature expressions.
 
 To generate more complex queries than this, you can concatenate its output with any other valid feature expressions, for example:
 
 ```css
-/* {[from.small() + " and (prefers-reduced-motion: reduce)"]: { ... }} */
+/* {[from.small.for.screen() + " and (prefers-reduced-motion: reduce)"]: { ... }} */
 
-@media all and (min-width: 30em) and (prefers-reduced-motion: reduce) { ... }
+@media screen and (min-width: 30em) and (prefers-reduced-motion: reduce) {
+	...;
+}
 ```
 
-
 ## Acknowledgements
+
 _src-mq_ is heavily inspired by [sass-mq](https://github.com/sass-mq/sass-mq).
 
 It's extracted from work [originally done at the Guardian](https://github.com/guardian/dotcom-rendering/pull/21) and that is now being rolled into their [Source Design System](https://github.com/guardian/source-components).
