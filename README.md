@@ -156,6 +156,17 @@ resetBreakpoints()
 
 ```
 
+## Complex queries
+By design, _src-mq_ is limited to media type and min/max-width expressions. 
+
+To generate more complex queries than this, you can concatenate its output with any valid media feature expressions, for example:
+
+```css
+/* {[from.small + " and (prefers-reduced-motion: reduce)"]: { ... }} */
+
+@media all and (min-width: 30em) and (prefers-reduced-motion: reduce) { ... }
+```
+
 
 ## Acknowledgements
 _src-mq_ is heavily inspired by [sass-mq](https://github.com/sass-mq/sass-mq).
