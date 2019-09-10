@@ -104,7 +104,7 @@ Returns a media query scoped to:
 
 Type: `function`
 
-Returns a media query that limits styles to media:
+Returns a media query scoped to:
 
 - a minimum width of **fromBreakpoint**
 - a maximum width of **untilBreakpoint** − 1px
