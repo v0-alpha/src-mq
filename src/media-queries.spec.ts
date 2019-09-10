@@ -1,4 +1,4 @@
-import { fromQuery, fromUntilQuery, untilQuery } from '../src/media-queries'
+import { fromQuery, fromUntilQuery, untilQuery } from './media-queries'
 
 describe('fromQuery', () => {
 	test('generates min-widths without media type', () => {

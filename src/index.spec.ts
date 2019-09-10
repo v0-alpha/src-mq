@@ -1,4 +1,4 @@
-import { from, until } from '../src/index'
+import { from, until } from './index'
 
 describe('until', () => {
 	test('is an object that provides breakpoint media queries', () => {
