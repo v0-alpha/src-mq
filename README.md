@@ -27,9 +27,7 @@ const styles = {
 
 ## API
 
-### from
-
-#### `from<breakpoint>`
+### `from<breakpoint>`
 
 Type: `function`
 
@@ -43,7 +41,7 @@ Returns a media query scoped to:
 @media all and (min-width: 30em) { ... }
 ```
 
-#### `from<breakpoint>.for[screen, print, speech]`
+### `from<breakpoint>.for[screen, print, speech]`
 
 Type: `function`
 
@@ -57,9 +55,10 @@ Returns a media query scoped to:
 
 @media screen and (min-width: 30em) { ... }
 ```
-### until
 
-#### `until<breakpoint>`
+<hr />
+
+### `until<breakpoint>`
 
 Type: `function`
 
@@ -73,7 +72,7 @@ Returns a media query scoped to:
 @media all and (max-width: 61.1875em) { ... }
 ```
 
-#### `until<breakpoint>.for[screen, print, speech]`
+### `until<breakpoint>.for[screen, print, speech]`
 
 Type: `function`
 
@@ -88,9 +87,9 @@ Returns a media query scoped to:
 @media screen and (max-width: 61.1875em) { ... }
 ```
 
-### from...until
+<hr />
 
-#### `from<fromBreakpoint>.until<untilBreakpoint>`
+### `from<fromBreakpoint>.until<untilBreakpoint>`
 
 Type: `function`
 
@@ -105,7 +104,7 @@ Returns a media query scoped to:
 @media all and (min-width: 30em) and (max-width: 61.1875em) { ... }
 ```
 
-#### `from<fromBreakpoint>.until<untilBreakpoint>.for[screen, print, speech]`
+### `from<fromBreakpoint>.until<untilBreakpoint>.for[screen, print, speech]`
 
 Type: `function`
 
