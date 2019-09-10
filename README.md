@@ -56,8 +56,6 @@ Returns a media query scoped to:
 @media screen and (min-width: 30em) { ... }
 ```
 
-<hr />
-
 ### `until<breakpoint>`
 
 Type: `function`
@@ -86,8 +84,6 @@ Returns a media query scoped to:
 
 @media screen and (max-width: 61.1875em) { ... }
 ```
-
-<hr />
 
 ### `from<fromBreakpoint>.until<untilBreakpoint>`
 
