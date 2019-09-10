@@ -3,7 +3,7 @@ import {
 	extendBreakpoints,
 	resetBreakpoints,
 	setBreakpoints,
-} from '../src/config'
+} from './config'
 
 const defaults = {
 	xxSmall: expect.any(Number),
