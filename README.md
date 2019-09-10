@@ -2,8 +2,8 @@
 
 🤓 Lucid breakpoints for JavaScript.
 
-[![Build Status](https://travis-ci.org/src-mq/src-mq.svg?branch=master)](https://travis-ci.org/src-mq/src-mq)
-[![codecov](https://codecov.io/gh/src-mq/src-mq/branch/master/graph/badge.svg)](https://codecov.io/gh/src-mq/src-mq)
+[![Build Status](https://travis-ci.com/al4L/src-mq.svg?branch=master)](https://travis-ci.com/al4L/src-mq)
+[![codecov](https://codecov.io/gh/al4L/src-mq/branch/master/graph/badge.svg)](https://codecov.io/gh/src-mq/src-mq)
 ![npm type definitions](https://img.shields.io/npm/types/src-mq)
 ![npm bundle size](https://img.shields.io/bundlephobia/minzip/src-mq)
 
