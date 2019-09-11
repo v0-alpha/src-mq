@@ -20,7 +20,17 @@ const setMediaType = (fn: (mediaType: MediaType) => MediaQuery) =>
 		}
 	}, {})
 
-export const until = Object.entries(breakpoints).reduce(
+interface Until {
+	[key: string]: {
+		(): MediaQuery
+		toString(): MediaQuery
+		for: {
+			[key in MediaType]: () => MediaQuery
+		}
+	}
+}
+
+export const until: Until = Object.entries(breakpoints).reduce(
 	(untils, [untilName, untilWidth]) => {
 		const getQuery = () => untilQuery(untilWidth)
 
@@ -36,7 +46,18 @@ export const until = Object.entries(breakpoints).reduce(
 	{},
 )
 
-export const from = Object.entries(breakpoints).reduce(
+interface From {
+	[key: string]: {
+		(): MediaQuery
+		toString(): MediaQuery
+		until: Until
+		for: {
+			[key in MediaType]: () => MediaQuery
+		}
+	}
+}
+
+export const from: From = Object.entries(breakpoints).reduce(
 	(froms, [fromName, fromWidth], i) => {
 		const getFromQuery = () => fromQuery(fromWidth)
 
