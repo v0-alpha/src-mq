@@ -13,16 +13,31 @@
 import { from, until } from 'src-mq'
 
 const styles = {
+	[from.small]: { ... },
 
-	[from.small()]: { ... },
+	[until.large]: { ... },
 
-	[until.large()]: { ... },
+	[from.small.until.large]: { ... },
 
-	[from.small.until.large()]: { ... },
-
-	[from.small.until.large.for.screen()]: { ... },
-
+	[from.small.until.large.for.screen]: { ... },
 }
+```
+
+If you're using _src-mq_ in a tagged template, you will need to explicitly call it each time. Here is an example using Emotion's `css`:
+
+```js
+import { from, until } from 'src-mq'
+import css from 'emotion'
+
+const styles = css`
+	${from.small()} { ... },
+
+	${until.large()} { ... },
+
+	${from.small.until.large()} { ... },
+
+	${from.small.until.large.for.screen()} { ... },
+`
 ```
 
 ## API

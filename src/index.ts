@@ -6,15 +6,20 @@ import {
 } from './config'
 import { fromQuery, fromUntilQuery, untilQuery } from './media-queries'
 
-const setMediaType = fn => ({
-	screen: fn.bind(null, 'screen'),
-	print: fn.bind(null, 'print'),
-	speech: fn.bind(null, 'speech'),
-})
+const setMediaType = fn =>
+	['screen', 'print', 'speech'].reduce((mediaTypes, mediaType) => {
+		const typeQuery = fn.bind(null, mediaType)
+		typeQuery.toString = typeQuery
+		return {
+			...mediaTypes,
+			[mediaType]: typeQuery,
+		}
+	}, {})
 
 export const until = Object.entries(breakpoints).reduce(
 	(untils, [untilName, untilWidth]) => {
 		const getQuery = () => untilQuery(untilWidth)
+		getQuery.toString = getQuery
 		getQuery.for = setMediaType(mediaType => untilQuery(untilWidth, mediaType))
 		return {
 			[untilName]: getQuery,
@@ -27,16 +32,18 @@ export const until = Object.entries(breakpoints).reduce(
 export const from = Object.entries(breakpoints).reduce(
 	(froms, [fromName, fromWidth], i) => {
 		const getFromQuery = () => fromQuery(fromWidth)
+		getFromQuery.toString = getFromQuery
 		getFromQuery.until = Object.entries(breakpoints)
 			.splice(i + 1)
 			.reduce((untils, [untilName, untilWidth], i) => {
-				const getUntilQuery = () => fromUntilQuery(fromWidth, untilWidth)
-				getUntilQuery.for = setMediaType(mediaType =>
+				const getFromUntilQuery = () => fromUntilQuery(fromWidth, untilWidth)
+				getFromUntilQuery.toString = getFromUntilQuery
+				getFromUntilQuery.for = setMediaType(mediaType =>
 					fromUntilQuery(fromWidth, untilWidth, mediaType),
 				)
 
 				return {
-					[untilName]: getUntilQuery,
+					[untilName]: getFromUntilQuery,
 					...untils,
 				}
 			}, {})
