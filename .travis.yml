@@ -4,7 +4,6 @@ branches:
   only:
     - master
 script:
-  - yarn lint
   - yarn global add codecov
   - yarn test --ci
 after_success:
