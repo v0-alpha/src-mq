@@ -4,7 +4,7 @@ branches:
   only:
     - master
 script:
-  - yarn lint
+  # - yarn lint
   - yarn global add codecov
   - yarn test --ci --coverage
 after_success:
