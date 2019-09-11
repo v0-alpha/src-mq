@@ -6,6 +6,6 @@ branches:
 script:
   - yarn lint
   - yarn global add codecov
-  - yarn test --ci
+  - yarn test --ci --coverage
 after_success:
   - codecov -f coverage/*.json
