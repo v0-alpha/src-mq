@@ -1,4 +1,4 @@
-const defaults = {
+const defaults: Breakpoints = {
 	xxSmall: 320,
 	xSmall: 375,
 	small: 480,
@@ -8,14 +8,14 @@ const defaults = {
 	xxLarge: 1300,
 }
 
-let breakpoints = defaults
+let breakpoints: Breakpoints = defaults
 
-export const extendBreakpoints = userBreakpoints =>
+export const extendBreakpoints = (userBreakpoints: Breakpoints) =>
 	(breakpoints = { ...breakpoints, ...userBreakpoints })
 
-export const setBreakpoints = userBreakpoints => (breakpoints = userBreakpoints)
+export const setBreakpoints = (userBreakpoints: Breakpoints) =>
+	(breakpoints = userBreakpoints)
 
 export const resetBreakpoints = () => (breakpoints = defaults)
 
-export type Breakpoints = keyof typeof breakpoints
 export { breakpoints }
