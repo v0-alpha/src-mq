@@ -1,6 +1,8 @@
 module.exports = {
-	transform: {
-		'^.+\\.tsx?$': 'ts-jest',
+	preset: 'ts-jest',
+	globals: {
+		'ts-jest': {
+			isolatedModules: true,
+		},
 	},
-	collectCoverage: true,
 }

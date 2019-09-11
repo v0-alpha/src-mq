@@ -3,7 +3,7 @@ import {
 	extendBreakpoints,
 	resetBreakpoints,
 	setBreakpoints,
-} from '../src/config'
+} from './config'
 
 const defaults = {
 	xxSmall: expect.any(Number),
@@ -21,13 +21,16 @@ describe('breakpoints', () => {
 	test('are defaults without doing anything', () => {
 		expect(breakpoints).toEqual(expect.objectContaining(defaults))
 	})
+
 	test('can be extended, replaced and reset', () => {
 		extendBreakpoints(bespoke)
 		expect(breakpoints).toEqual(
 			expect.objectContaining({ ...defaults, ...bespoke }),
 		)
+
 		setBreakpoints(bespoke)
 		expect(breakpoints).toEqual(bespoke)
+
 		resetBreakpoints()
 		expect(breakpoints).toEqual(expect.objectContaining(defaults))
 	})
