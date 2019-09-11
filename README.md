@@ -23,13 +23,15 @@ const styles = {
 }
 ```
 
-If you're using _src-mq_ in a tagged template, you will need to explicitly call it each time. Here is an example using Emotion's `css`:
+If you're using _src-mq_ in a tagged template, you will need to explicitly call it each time. 
+
+Here is an example using [Emotion](https://emotion.sh)'s `css`:
 
 ```js
 import { from, until } from 'src-mq'
 import css from 'emotion'
 
-const styles = css`
+const className = css`
 	${from.small()} { ... },
 
 	${until.large()} { ... },
