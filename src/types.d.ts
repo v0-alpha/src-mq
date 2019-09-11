@@ -1,5 +1,2 @@
-type BreakpointsList = {
-	[prop: string]: number
-}
-
-// type Breakpoints = keyof typeof breakpoints
+type MediaType = 'screen' | 'speech' | 'print' | 'all'
+type MediaQuery = string
