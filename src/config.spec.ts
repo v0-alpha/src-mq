@@ -17,11 +17,11 @@ const defaults = [
 const bespoke = { tiny: 5 }
 
 describe('breakpoints', () => {
-	xtest('are defaults without doing anything', () => {
+	test('are defaults without doing anything', () => {
 		expect(getBreakpoints()).toEqual(expect.objectContaining(defaults))
 	})
 
-	xtest('can be extended, replaced and reset', () => {
+	test('can be extended, replaced and reset', () => {
 		extendBreakpoints(bespoke)
 		expect(getBreakpoints()).toEqual([...defaults, ...Object.entries(bespoke)])
 
