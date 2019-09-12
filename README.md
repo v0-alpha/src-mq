@@ -23,6 +23,7 @@ const styles = {
 }
 ```
 
+#### Tagged templates
 To use _src-mq_ in a tagged template, you will need to explicitly call it each time.
 
 For example, this is how you would use it with [Emotion](https://emotion.sh)'s `css`:
