@@ -5,9 +5,7 @@ type QueryProps = {
 	until?: number
 }
 
-type Query = ({ from, until }: QueryProps, media?: MediaType) => string
-
-const query: Query = ({ from, until }, media = 'all') =>
+const query = ({ from, until }: QueryProps, media = 'all') =>
 	[
 		`@media ${media}`,
 		from ? `(min-width: ${asEms(from)})` : null,
