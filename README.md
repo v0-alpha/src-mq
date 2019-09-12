@@ -53,7 +53,7 @@ Returns a media query scoped to:
 - a minimum width of **breakpoint**
 
 ```scss
-/* {[from.small()]: { ... }} */
+/* {[from.small]: { ... }} */
 
 @media all and (min-width: 30em) { ... }
 ```
@@ -68,7 +68,7 @@ Returns a media query scoped to:
 - the specified media type
 
 ```scss
-/* {[from.small.for.screen()]: { ... }} */
+/* {[from.small.for.screen]: { ... }} */
 
 @media screen and (min-width: 30em) { ... }
 ```
@@ -82,7 +82,7 @@ Returns a media query scoped to:
 - a maximum width of **breakpoint** − 1px
 
 ```scss
-/* {[until.large()]: { ... }} */
+/* {[until.large]: { ... }} */
 
 @media all and (max-width: 61.1875em) { ... }
 ```
@@ -97,7 +97,7 @@ Returns a media query scoped to:
 - the specified media type
 
 ```scss
-/* {[until.large.for.screen()]: { ... }} */
+/* {[until.large.for.screen]: { ... }} */
 
 @media screen and (max-width: 61.1875em) { ... }
 ```
@@ -112,7 +112,7 @@ Returns a media query scoped to:
 - a maximum width of **untilBreakpoint** − 1px
 
 ```scss
-/* {[from.small.until.large()]: { ... }} */
+/* {[from.small.until.large]: { ... }} */
 
 @media all and (min-width: 30em) and (max-width: 61.1875em) { ... }
 ```
@@ -128,7 +128,7 @@ Returns a media query scoped to:
 - the specified media type
 
 ```scss
-/* {[from.small.until.large.for.screen()]: { ... }} */
+/* {[from.small.until.large.for.screen]: { ... }} */
 
 @media screen and (min-width: 30em) and (max-width: 61.1875em) { ... }
 ```
@@ -170,7 +170,7 @@ import { setBreakpoints, extendBreakpoints, resetBreakpoints } from 'src-mq'
 // 	- xLarge (1140 pixels)
 // 	- xxLarge (1300 pixels)
 //
-// You can do [from.small.until.medium()] etc.
+// You can do [from.small.until.medium] etc.
 
 setBreakpoints({ tiny: 1, massive: 10000000 })
 
@@ -179,8 +179,8 @@ setBreakpoints({ tiny: 1, massive: 10000000 })
 // 	- tiny (1 pixel)
 // 	- massive (10000000 pixels)
 //
-// Now you can do [from.tiny.until.massive()],
-// but not [from.small.until.medium()] etc.
+// Now you can do [from.tiny.until.massive],
+// but not [from.small.until.medium] etc.
 
 extendBreakpoints({ infinitesimal: 0.00000001 })
 
@@ -190,7 +190,7 @@ extendBreakpoints({ infinitesimal: 0.00000001 })
 // 	- tiny (1 pixel)
 // 	- massive (10000000 pixels)
 //
-// Now you can do [from.infinitesimal.until.massive()] etc.
+// Now you can do [from.infinitesimal.until.massive] etc.
 
 resetBreakpoints()
 
@@ -204,8 +204,8 @@ resetBreakpoints()
 // 	- xLarge (1140 pixels)
 // 	- xxLarge (1300 pixels)
 //
-// Now you can do [from.small.until.medium()],
-// but not [from.tiny.until.massive()] etc.
+// Now you can do [from.small.until.medium],
+// but not [from.tiny.until.massive] etc.
 ```
 
 ## Complex queries
