@@ -151,7 +151,7 @@ _src-mq_ provides a reasonable set of defaults:
 - `xLarge` (1140 pixels)
 - `xxLarge` (1300 pixels)
 
-_Breakpoint values are output to CSS as ems, assuming 1em = 16px._
+_Breakpoint pixel values are converted ems in the CSS, assuming 1em = 16px._
 
 ## Overriding breakpoints
 
