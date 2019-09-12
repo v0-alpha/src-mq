@@ -8,10 +8,8 @@ type QueryProps = {
 const query = ({ from, until }: QueryProps, media = 'all') =>
 	[
 		`@media ${media}`,
-		from ? `(min-width: ${asEms(from)})` : null,
-		until ? `(max-width: ${asEms(until - 1)})` : null,
-	]
-		.filter(Boolean)
-		.join(' and ')
+		`(min-width: ${from ? asEms(from) : 'none'})`,
+		`(max-width: ${until ? asEms(until - 1) : 'none'})`,
+	].join(' and ')
 
 export default query
