@@ -23,7 +23,7 @@ export default (breakpoints: BreakpointsList): FromQuery =>
 			query({ from: fromWidth }, mediaType),
 		)
 
-		from.until = getUntil(breakpoints.splice(i + 1), fromWidth)
+		from.until = getUntil(breakpoints.slice(i + 1), fromWidth)
 
 		return {
 			[fromName]: from,
