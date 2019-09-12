@@ -23,7 +23,7 @@ const styles = {
 }
 ```
 
-If you're using _src-mq_ in a tagged template, you will need to explicitly call it each time. 
+If you're using _src-mq_ in a tagged template, you will need to explicitly call it each time.
 
 Here is an example using [Emotion](https://emotion.sh)'s `css`:
 
@@ -55,7 +55,7 @@ Returns a media query scoped to:
 ```scss
 /* {[from.small]: { ... }} */
 
-@media all and (min-width: 30em) { ... }
+@media all and (min-width: 30em) and (max-width: none) { ... }
 ```
 
 ### `from<breakpoint>.for[screen, print, speech]`
@@ -70,7 +70,7 @@ Returns a media query scoped to:
 ```scss
 /* {[from.small.for.screen]: { ... }} */
 
-@media screen and (min-width: 30em) { ... }
+@media screen and (min-width: 30em) and (max-width: none) { ... }
 ```
 
 ### `until<breakpoint>`
@@ -84,7 +84,7 @@ Returns a media query scoped to:
 ```scss
 /* {[until.large]: { ... }} */
 
-@media all and (max-width: 61.1875em) { ... }
+@media all and (min-width: none) and (max-width: 61.1875em) { ... }
 ```
 
 ### `until<breakpoint>.for[screen, print, speech]`
@@ -99,7 +99,7 @@ Returns a media query scoped to:
 ```scss
 /* {[until.large.for.screen]: { ... }} */
 
-@media screen and (max-width: 61.1875em) { ... }
+@media screen and (min-width: none) and (max-width: 61.1875em) { ... }
 ```
 
 ### `from<fromBreakpoint>.until<untilBreakpoint>`
