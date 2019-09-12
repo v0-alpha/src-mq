@@ -23,9 +23,9 @@ const styles = {
 }
 ```
 
-If you're using _src-mq_ in a tagged template, you will need to explicitly call it each time.
+To use _src-mq_ in a tagged template, you will need to explicitly call it each time.
 
-Here is an example using [Emotion](https://emotion.sh)'s `css`:
+For example, this is how you would use it with [Emotion](https://emotion.sh)'s `css`:
 
 ```js
 import { from, until } from 'src-mq'
