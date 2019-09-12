@@ -215,9 +215,9 @@ By design, _src-mq_ is limited to media type and min/max-width feature expressio
 To generate more complex queries than this, you can concatenate its output with any other valid feature expressions, for example:
 
 ```scss
-/* {[from.small.for.screen() + " and (prefers-reduced-motion: reduce)"]: { ... }} */
+/* {[from.small.for.screen + " and (prefers-reduced-motion: reduce)"]: { ... }} */
 
-@media screen and (min-width: 30em) and (prefers-reduced-motion: reduce) { ... }
+@media screen and (min-width: 30em) and (max-width: none) and (prefers-reduced-motion: reduce) { ... }
 ```
 
 ## Acknowledgements
