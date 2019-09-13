@@ -2,7 +2,7 @@
 	"name": "src-mq",
 	"version": "0.1.0",
 	"description": "Lucid breakpoints for JavaScript",
-	"repository": "https://github.com/everalpha/src-mq.git",
+	"repository": "https://github.com/v0-alpha/src-mq.git",
 	"license": "MIT",
 	"devDependencies": {
 		"@types/jest": "24.0.18",
