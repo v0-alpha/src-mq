@@ -2,8 +2,8 @@
 
 🤓 Lucid breakpoints for JavaScript.
 
-[![Build Status](https://travis-ci.com/everalpha/src-mq.svg?branch=master)](https://travis-ci.com/everalpha/src-mq)
-[![codecov](https://codecov.io/gh/everalpha/src-mq/branch/master/graph/badge.svg)](https://codecov.io/gh/everalpha/src-mq)
+[![Build Status](https://travis-ci.com/v0-alpha/src-mq.svg?branch=master)](https://travis-ci.com/v0-alpha/src-mq)
+[![codecov](https://codecov.io/gh/v0-alpha/src-mq/branch/master/graph/badge.svg)](https://codecov.io/gh/v0-alpha/src-mq)
 ![npm type definitions](https://img.shields.io/npm/types/src-mq)
 ![npm bundle size](https://img.shields.io/bundlephobia/minzip/src-mq)
 
@@ -23,7 +23,7 @@ const styles = {
 }
 ```
 
-If you're using _src-mq_ in a tagged template, you will need to explicitly call it each time. 
+If you're using _src-mq_ in a tagged template, you will need to explicitly call it each time.
 
 Here is an example using [Emotion](https://emotion.sh)'s `css`:
 
