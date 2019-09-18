@@ -23,9 +23,10 @@ const styles = {
 }
 ```
 
-If you're using _src-mq_ in a tagged template, you will need to explicitly call it each time.
+#### Tagged templates
+To use _src-mq_ in a tagged template, you will need to explicitly call it as a function.
 
-Here is an example using [Emotion](https://emotion.sh)'s `css`:
+For example, this is how you would use it with [Emotion](https://emotion.sh)'s `css`:
 
 ```js
 import { from, until } from 'src-mq'
@@ -55,7 +56,7 @@ Returns a media query scoped to:
 ```scss
 /* {[from.small]: { ... }} */
 
-@media all and (min-width: 30em) { ... }
+@media all and (min-width: 30em) and (max-width: none) { ... }
 ```
 
 ### `from<breakpoint>.for[screen, print, speech]`
@@ -70,7 +71,7 @@ Returns a media query scoped to:
 ```scss
 /* {[from.small.for.screen]: { ... }} */
 
-@media screen and (min-width: 30em) { ... }
+@media screen and (min-width: 30em) and (max-width: none) { ... }
 ```
 
 ### `until<breakpoint>`
@@ -84,7 +85,7 @@ Returns a media query scoped to:
 ```scss
 /* {[until.large]: { ... }} */
 
-@media all and (max-width: 61.1875em) { ... }
+@media all and (min-width: none) and (max-width: 61.1875em) { ... }
 ```
 
 ### `until<breakpoint>.for[screen, print, speech]`
@@ -99,7 +100,7 @@ Returns a media query scoped to:
 ```scss
 /* {[until.large.for.screen]: { ... }} */
 
-@media screen and (max-width: 61.1875em) { ... }
+@media screen and (min-width: none) and (max-width: 61.1875em) { ... }
 ```
 
 ### `from<fromBreakpoint>.until<untilBreakpoint>`
@@ -151,7 +152,7 @@ _src-mq_ provides a reasonable set of defaults:
 - `xLarge` (1140 pixels)
 - `xxLarge` (1300 pixels)
 
-_Breakpoint values are output to CSS as ems, assuming 1em = 16px._
+_Breakpoint pixel values are converted ems in the CSS, assuming 1em = 16px._
 
 ## Overriding breakpoints
 
@@ -215,9 +216,9 @@ By design, _src-mq_ is limited to media type and min/max-width feature expressio
 To generate more complex queries than this, you can concatenate its output with any other valid feature expressions, for example:
 
 ```scss
-/* {[from.small.for.screen() + " and (prefers-reduced-motion: reduce)"]: { ... }} */
+/* {[from.small.for.screen + " and (prefers-reduced-motion: reduce)"]: { ... }} */
 
-@media screen and (min-width: 30em) and (prefers-reduced-motion: reduce) { ... }
+@media screen and (min-width: 30em) and (max-width: none) and (prefers-reduced-motion: reduce) { ... }
 ```
 
 ## Acknowledgements

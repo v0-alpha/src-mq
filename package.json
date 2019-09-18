@@ -14,6 +14,6 @@
 	"scripts": {
 		"test": "jest",
 		"lint": "tsc --noEmit",
-		"build": "tsc"
+		"build": "rm -rf dist && tsc"
 	}
 }
