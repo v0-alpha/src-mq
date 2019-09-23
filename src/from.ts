@@ -2,8 +2,8 @@ import getFor from './for'
 import query from './query'
 import getUntil, { UntilQuery } from './until'
 
-export interface FromQuery {
-	[key: string]: {
+export interface FromQuery<Breakpoint extends string> {
+	[key: Breakpoint]: {
 		(): MediaQuery
 		toString: () => MediaQuery
 		for: {
@@ -13,7 +13,9 @@ export interface FromQuery {
 	}
 }
 
-export default (breakpoints: BreakpointsList): FromQuery =>
+export default <Breakpoint>(
+	breakpoints: [Breakpoint, number][],
+): FromQuery<Breakpoint> =>
 	breakpoints.reduce((froms, [fromName, fromWidth], i) => {
 		const from = () => query({ from: fromWidth })
 
